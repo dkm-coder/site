@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-pages-index-js","path":"/","result":{"pageContext":{}}}
+{"componentChunkName":"component---src-pages-index-js","path":"/","result":{"data":{"allMarkdownRemark":{"edges":[{"node":{"frontmatter":{"title":"First real post","path":"/first-post"}}},{"node":{"frontmatter":{"title":"Starting here","path":"/zero-post"}}}]}},"pageContext":{}}}
