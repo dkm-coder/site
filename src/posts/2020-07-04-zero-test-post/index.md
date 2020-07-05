@@ -1,7 +1,7 @@
 ---
 path: "/zero-post"
 date: "2020-07-04"
-title: "Starting here..."
+title: "Starting here"
 tags: ['this', 'that']
 excerpt: "Hi! My name is Dave. Let me introduce myself..."
 ---
