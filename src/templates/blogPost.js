@@ -1,9 +1,9 @@
 import React from 'react';
 // import { graphql } from 'gatsby';
 
-const BlogPost = (props) => (
+const BlogPost = ({ pageContext: { pathSlug } }) => (
   <div>
-    Blog Post Here
+    {pathSlug}
   </div>
 );
 
