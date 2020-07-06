@@ -7,9 +7,11 @@
 module.exports = {
   siteMetadata: {
     title: 'Dave Martinez',
-    description: 'Front-End Engineer'
+    description: 'Front-End Engineer',
+    siteUrl: `https://dave-martinez.dev`
   },
   plugins: [
+    `gatsby-plugin-feed`,
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
