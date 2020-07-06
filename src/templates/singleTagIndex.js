@@ -19,6 +19,7 @@ const SingleTagTemplate = ({pageContext: { posts, tagName }}) => {
             );
           })}
         </ul>
+        <small>You can also go back to the list of <Link to="..">Tags</Link></small>
       </div>
       <br />
       <Link to="/">Home</Link>
