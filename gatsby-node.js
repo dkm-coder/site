@@ -1,11 +1,45 @@
 const path = require('path');
 
-// Promise API
-// exports.createPages = () => {
-//   return new Promise((resolve, reject) => {
-//     // do async work
-//   })
-// }
+const createTagPages = (createPage, posts) => {
+  const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js');
+  const singleTagIndexTemplate = path.resolve('src/templates/singleTagIndex.js');
+
+  const postsByTag = {};
+
+  posts.forEach(({node}) => {
+    if (node.frontmatter.tags) {
+      node.frontmatter.tags.forEach(tag => {
+        if(!postsByTag[tag]) {
+          postsByTag[tag] = [];
+        }
+
+        postsByTag[tag].push(node)
+      });
+    }
+  });
+
+  const tags = Object.keys(postsByTag);
+  createPage({
+    path: '/tags',
+    component: allTagsIndexTemplate,
+    context: {
+      tags: tags.sort(),
+    }
+  })
+
+  tags.forEach(tagName => {
+    const posts = postsByTag[tagName];
+
+    createPage({
+      path: `/tags/${tagName}`,
+      component: singleTagIndexTemplate,
+      context: {
+        posts,
+        tagName,
+      }
+    });
+});
+}
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
@@ -21,6 +55,8 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   frontmatter {
                     path
+                    tags
+                    title
                   }
                 }
               }
@@ -29,6 +65,8 @@ exports.createPages = ({ graphql, actions }) => {
         `
       ).then(result => {
         const posts = result.data.allMarkdownRemark.edges;
+
+        createTagPages(createPage, posts);
         posts.forEach(({node}, index) => {
           const path = node.frontmatter.path;
           createPage({

@@ -21,6 +21,9 @@ const Layout = ({ data }) => {
           );
         })}
       </ul>
+      <br />
+      <small><Link to='/tags'>Browse by tags</Link></small>
+      <br />
       <small>This page is being developed as we speak.</small><br /><small>No styles have been applied intentionally.</small>
     </div>
   );
