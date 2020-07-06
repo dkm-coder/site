@@ -1,5 +1,5 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { Fragment } from 'react';
+import { graphql, Link } from 'gatsby';
 
 const BlogPost = ({
     data: {
@@ -9,11 +9,19 @@ const BlogPost = ({
         },
         html,
       }
-    }
+    },
+    pageContext: {
+      prev,
+      next,
+    },
 }) => (
   <div>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{__html: html}} />
+      { prev && (<Fragment><Link to={prev.frontmatter.path}>Previous</Link><br /></Fragment>) }
+      { next && <Link to={next.frontmatter.path}>Next</Link> }
+      <br /><br />
+      <Link to="/">Home</Link>
   </div>
 );
 
