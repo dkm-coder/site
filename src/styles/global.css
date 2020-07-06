@@ -1,0 +1,64 @@
+/* LINE HIGHLIGHTS */
+.gatsby-highlight-code-line {
+    background-color: #32332c;
+    display: block;
+    margin-right: 0em;
+    margin-left: -1em;
+    padding-right: 1em;
+    padding-left: 0.75em;
+    border-left: 0.25em solid #686868;
+    overflow: hidden;
+  }
+
+
+
+/* LINE NUMBERING */
+
+/* Adjust the position of the line numbers */
+.gatsby-highlight pre[class*="language-"].line-numbers {
+    padding-left: 2.8em;
+  }
+
+
+  /**
+   * If you only want to use line numbering
+   */
+
+  .gatsby-highlight {
+    border-radius: 0.3em;
+    margin: 0.5em 0;
+    padding: 0 16px;
+    overflow: auto;
+  }
+
+  .gatsby-highlight pre[class*="language-"].line-numbers {
+    padding: 0;
+    padding-left: 2.8em;
+    overflow: initial;
+  }
+
+  .line-numbers-rows {
+      left: 7px !important;
+  }
+
+/* Command line */
+.command-line-prompt > span:before {
+    color: #999;
+    content: " ";
+    display: block;
+    padding-right: 0.8em;
+  }
+
+  /* Prompt for all users */
+  .command-line-prompt > span[data-user]:before {
+    content: "[" attr(data-user) "@" attr(data-host) "] $";
+  }
+
+  /* Prompt for root */
+  .command-line-prompt > span[data-user="root"]:before {
+    content: "[" attr(data-user) "@" attr(data-host) "] #";
+  }
+
+  .command-line-prompt > span[data-prompt]:before {
+    content: attr(data-prompt);
+  }
