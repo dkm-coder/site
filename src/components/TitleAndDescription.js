@@ -1,14 +1,14 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
-const TitleAndDescription = ({data: {site: {siteMetadata: {title, description}}}}) => (
+const ComponentToRender = ({data: {site: {siteMetadata: {title, description}}}}) => (
   <div>
-    <h1>{title}</h1>
-    <p>{description}</p>
+    <h3>{title}</h3>
+    <h4>{description}</h4>
   </div>
 );
 
-const Header = () => {
+const TitleAndDescription = () => {
   return (
     <StaticQuery
     query={graphql`
@@ -22,10 +22,10 @@ const Header = () => {
         }
     `}
     render={data => (
-        <TitleAndDescription data={data} />
+        <ComponentToRender data={data} />
     )}
     />
   );
 };
 
-export default Header;
+export default TitleAndDescription;

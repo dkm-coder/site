@@ -101,5 +101,6 @@ module.exports = {
         routeChangeEventName: "gatsby-route-change",
       },
     },
+    `gatsby-plugin-material-ui`,
   ],
 }

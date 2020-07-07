@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from 'gatsby';
+import Layout from '../components/Layout'
 
 const AllTagsTemplate = ({pageContext: { tags }}) => {
   return (
-    <div>
+    <Layout>
       <div>
         List of available tags:
         <ul>
@@ -20,7 +21,7 @@ const AllTagsTemplate = ({pageContext: { tags }}) => {
       </div>
       <br />
       <Link to="/">Home</Link>
-    </div>
+    </Layout>
   );
 }
 

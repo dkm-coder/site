@@ -14,9 +14,12 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/styles": "^4.10.0",
     "gatsby": "^2.23.12",
     "gatsby-plugin-feed": "^2.5.10",
     "gatsby-plugin-google-tagmanager": "^2.3.10",
+    "gatsby-plugin-material-ui": "^2.1.9",
     "gatsby-remark-prismjs": "^3.5.9",
     "gatsby-source-filesystem": "^2.3.18",
     "gatsby-transformer-remark": "^2.8.23",

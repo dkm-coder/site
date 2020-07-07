@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout'
 
 const BlogPost = ({
     data: {
@@ -15,14 +16,14 @@ const BlogPost = ({
       next,
     },
 }) => (
-  <div>
+  <Layout>
       <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{__html: html}} />
       { prev && (<Fragment><Link to={prev.frontmatter.path}>Previous</Link><br /></Fragment>) }
       { next && <Link to={next.frontmatter.path}>Next</Link> }
       <br /><br />
       <Link to="/">Home</Link>
-  </div>
+  </Layout>
 );
 
 export const query = graphql`
