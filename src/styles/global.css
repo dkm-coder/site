@@ -1,64 +1,89 @@
-/* LINE HIGHLIGHTS */
+.language-text {
+  background-color: #f6f6f6 !important;
+  border: 1px solid #d9d9d9 !important;
+  color: #e44173 !important;
+  padding: 1px 5px !important;
+  margin: 0 2px;
+}
+
 .gatsby-highlight-code-line {
-    background-color: #32332c;
-    display: block;
-    margin-right: 0em;
-    margin-left: -1em;
-    padding-right: 1em;
-    padding-left: 0.75em;
-    border-left: 0.25em solid #686868;
-    overflow: hidden;
-  }
+  background-color: rgba(175, 175, 175, 0.068);
+  background: rgb(37,37,37);
+  background: linear-gradient(90deg, rgba(37,37,37,1) 0%, rgba(175,175,175,0.1) 0%, rgba(175,175,175,0.1) 17%, rgba(179,179,179,0) 100%);
+  display: block;
+  margin-right: 0em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid rgba(175, 175, 175, 0.3);
+}
 
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
 
+pre.line-numbers > code {
+	position: relative;
+}
 
-/* LINE NUMBERING */
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em;
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
 
-/* Adjust the position of the line numbers */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.line-numbers-rows > span {
+	pointer-events: none;
+	display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #999;
+	display: block;
+	padding-right: 0.8em;
+  text-align: right;
+  padding-left: 4px;
+}
+
+.gatsby-highlight {
+  border-radius: 0.3em;
+  overflow: auto;
+}
+
 .gatsby-highlight pre[class*="language-"].line-numbers {
-    padding-left: 2.8em;
-  }
+  padding: 0;
+  padding-left: 2.8em;
+}
 
-
-  /**
-   * If you only want to use line numbering
-   */
-
-  .gatsby-highlight {
-    border-radius: 0.3em;
-    margin: 0.5em 0;
-    padding: 0 16px;
-    overflow: auto;
-  }
-
-  .gatsby-highlight pre[class*="language-"].line-numbers {
-    padding: 0;
-    padding-left: 2.8em;
-    overflow: initial;
-  }
-
-  .line-numbers-rows {
-      left: 7px !important;
-  }
-
-/* Command line */
 .command-line-prompt > span:before {
-    color: #999;
-    content: " ";
-    display: block;
-    padding-right: 0.8em;
-  }
+  color: #999;
+  content: " ";
+  display: block;
+  padding-right: 0.8em;
+}
 
-  /* Prompt for all users */
-  .command-line-prompt > span[data-user]:before {
-    content: "[" attr(data-user) "@" attr(data-host) "] $";
-  }
+.command-line-prompt > span[data-user]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
 
-  /* Prompt for root */
-  .command-line-prompt > span[data-user="root"]:before {
-    content: "[" attr(data-user) "@" attr(data-host) "] #";
-  }
+.command-line-prompt > span[data-user="root"]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
 
-  .command-line-prompt > span[data-prompt]:before {
-    content: attr(data-prompt);
-  }
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
