@@ -7,6 +7,13 @@ const useStyles = makeStyles(() => ({
     container: {
       width: '900px',
       margin: '0 auto',
+      display: 'flex',
+    },
+    border: {
+      border: '1px solid black',
+      boxSizing: 'border-box',
+      flexGrow: '1',
+      minWidth: '300px',
     },
   }));
 
@@ -16,8 +23,12 @@ export default function Layout(props) {
     <Fragment>
       <NavBar />
       <div className={classes.container}>
-        <TitleAndDescription />
-        {props.children}
+        <div className={classes.border}>
+          <TitleAndDescription />
+        </div>
+        <div className={classes.border}>
+          {props.children}
+        </div>
       </div>
     </Fragment>
   );
