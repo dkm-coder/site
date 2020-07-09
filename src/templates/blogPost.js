@@ -1,11 +1,17 @@
 import React, { Fragment } from 'react';
 import { graphql, Link } from 'gatsby';
+import Img from "gatsby-image"
 
 const BlogPost = ({
     data: {
       markdownRemark: {
         frontmatter: {
           title,
+          featuredImage: {
+            childImageSharp: {
+              fluid: featuredImage,
+            }
+          }
         },
         html,
       }
@@ -17,6 +23,7 @@ const BlogPost = ({
 }) => (
   <div>
       <h1>{title}</h1>
+      { featuredImage && <Img fluid={featuredImage} />}
       <div dangerouslySetInnerHTML={{__html: html}} />
       { prev && (<Fragment><Link to={prev.frontmatter.path}>Previous</Link><br /></Fragment>) }
       { next && <Link to={next.frontmatter.path}>Next</Link> }
@@ -31,6 +38,13 @@ export const query = graphql`
       html
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

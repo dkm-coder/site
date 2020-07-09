@@ -3,6 +3,7 @@ path: "/first-post"
 date: "2020-07-05"
 title: "First real post"
 tags: ['that']
+featuredImage: '../../images/test.jpeg'
 excerpt: "Today, we will take the opportunity to talk about..."
 ---
 
