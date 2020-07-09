@@ -1,20 +1,27 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import NavBar from './NavBar';
-import TitleAndDescription from './TitleAndDescription';
+import PersonalInfo from './PersonalInfo';
 
 const useStyles = makeStyles(() => ({
     container: {
-      width: '900px',
+      maxWidth: '900px',
+      width: '100%',
       margin: '0 auto',
       display: 'flex',
+      flexWrap: 'wrap',
+      flexDirection: 'row',
     },
-    border: {
-      border: '1px solid black',
-      boxSizing: 'border-box',
-      flexGrow: '1',
-      minWidth: '300px',
+    personalContainer: {
+      backgroundColor: 'green',
+      flexGrow: 1,
     },
+    contentContainer: {
+      // backgroundColor: 'yellow',
+      padding: '8px',
+      flexGrow: 1,
+      maxWidth: '600px',
+    }
   }));
 
 export default function Layout(props) {
@@ -23,10 +30,10 @@ export default function Layout(props) {
     <Fragment>
       <NavBar />
       <div className={classes.container}>
-        <div className={classes.border}>
-          <TitleAndDescription />
+        <div className={classes.personalContainer}>
+          <PersonalInfo />
         </div>
-        <div className={classes.border}>
+        <div className={classes.contentContainer}>
           {props.children}
         </div>
       </div>

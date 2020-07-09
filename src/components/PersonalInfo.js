@@ -8,7 +8,7 @@ const ComponentToRender = ({data: {site: {siteMetadata: {title, description}}}})
   </div>
 );
 
-const TitleAndDescription = () => {
+const PersonalInfo = () => {
   return (
     <StaticQuery
     query={graphql`
@@ -28,4 +28,4 @@ const TitleAndDescription = () => {
   );
 };
 
-export default TitleAndDescription;
+export default PersonalInfo;

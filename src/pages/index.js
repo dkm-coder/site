@@ -1,26 +1,23 @@
 import React from "react"
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout'
+import ArticleLink from '../components/ArticleLink';
 
 const Main = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
   return (
     <div>
       <Layout>
-        <ul>
-          {edges.map(edge => {
-            const { title, path } = edge.node.frontmatter;
-            return (
-            <li
-              key={path}
-            >
-              <Link to={path}>
-                {title}
-              </Link>
-            </li>
-            );
-          })}
-        </ul>
+        {edges.map(edge => {
+          const { title, path, excerpt } = edge.node.frontmatter;
+          return (
+            <ArticleLink
+              title={title}
+              link={path}
+              excerpt={excerpt}
+            />
+          );
+        })}
         <br />
         <small><Link to='/tags'>Browse by tags</Link></small>
         <br />
@@ -44,6 +41,7 @@ export const query = graphql`
           frontmatter {
             title
             path
+            excerpt
           }
         }
       }
