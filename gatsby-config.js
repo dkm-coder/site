@@ -11,6 +11,8 @@ module.exports = {
     siteUrl: `https://dave-martinez.dev`
   },
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-feed`,
     `gatsby-transformer-remark`,
     {
@@ -19,6 +21,12 @@ module.exports = {
         name: `pages`,
         path: `${__dirname}/src/posts`,
       }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
