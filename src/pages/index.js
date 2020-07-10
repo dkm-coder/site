@@ -17,7 +17,6 @@ const useStyles = makeStyles(() => ({
     fontFamily: 'BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
   },
   titleText: {
-    color: 'orange',
     fontFamily: 'BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
     fontWeight: '400',
     fontSize: '16px',
@@ -52,11 +51,6 @@ const Main = ({ data }) => {
             );
           })}
         </div>
-        <br />
-        <br />
-        <small>This page is being developed as we speak.</small><br /><small>No styles have been applied intentionally.</small>
-        <br /><br />
-        <small><a href="/rss.xml" target="_blank" rel="noopener noreferrer">RSS</a></small>
       </Layout>
     </div>
   );

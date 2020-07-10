@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
     container: {
       width: '100%',
-      height: '54px',
+      height: '40px',
       backgroundColor: 'black',
       display: 'flex',
       alignItems: 'center',
@@ -13,17 +13,20 @@ const useStyles = makeStyles(() => ({
     content: {
       width: '900px',
       margin: '0 auto',
-      color: 'white',
       textAlign: 'end',
-    },
-  }));
+      color: 'white',
+      fontSize: '14px',
+      fontFamily: 'BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
+      fontWeight: '400',
+    }
+}));
 
 export default function Scond() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-        Blog | Portfolio | <Link to='/about'>About</Link> | Contact
+        Blog | Portfolio | <Link to='/about'>About</Link>
       </div>
     </div>
   );
