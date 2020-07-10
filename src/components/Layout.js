@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     },
     contentContainer: {
       // backgroundColor: 'yellow',
-      padding: '8px',
+      padding: '24px 0',
       flexGrow: 1,
       maxWidth: '600px',
     }

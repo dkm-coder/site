@@ -4,12 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: '100%',
+    flexGrow: 1,
+    // width: '100%',
     border: '1px solid #e1e4e8',
     fontFamily: 'BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
     borderRadius: '6px',
     padding: '16px',
-    margin: '8px',
+    margin: '0 8px 8px 8px',
   },
   text: {
     fontSize: '14px',
