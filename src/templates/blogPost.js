@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout'
 import Img from "gatsby-image"
 
 const BlogPost = ({
@@ -21,7 +22,7 @@ const BlogPost = ({
       next,
     },
 }) => (
-  <div>
+  <Layout>
       <h1>{title}</h1>
       { featuredImage && <Img fluid={featuredImage} />}
       <div dangerouslySetInnerHTML={{__html: html}} />
@@ -29,7 +30,7 @@ const BlogPost = ({
       { next && <Link to={next.frontmatter.path}>Next</Link> }
       <br /><br />
       <Link to="/">Home</Link>
-  </div>
+  </Layout>
 );
 
 export const query = graphql`
