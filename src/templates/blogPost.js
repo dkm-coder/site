@@ -1,7 +1,24 @@
 import React, { Fragment } from 'react';
 import { graphql, Link } from 'gatsby';
-import Layout from '../components/Layout'
+import { makeStyles } from '@material-ui/core/styles';
 import Img from "gatsby-image"
+import Layout from '../components/Layout'
+
+const useStyles = makeStyles({
+  root: {
+    margin: '0 8px',
+  },
+  titleText: {
+    fontFamily: 'BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
+    fontWeight: '400',
+    fontSize: '16px',
+    marginBottom: '8px',
+    color: '#24292e',
+  },
+  postContent: {
+    fontSize: '14px',
+  },
+});
 
 const BlogPost = ({
     data: {
@@ -21,17 +38,23 @@ const BlogPost = ({
       prev,
       next,
     },
-}) => (
-  <Layout>
-      <h1>{title}</h1>
-      { featuredImage && <Img fluid={featuredImage} />}
-      <div dangerouslySetInnerHTML={{__html: html}} />
-      { prev && (<Fragment><Link to={prev.frontmatter.path}>Previous</Link><br /></Fragment>) }
-      { next && <Link to={next.frontmatter.path}>Next</Link> }
-      <br /><br />
-      <Link to="/">Home</Link>
-  </Layout>
-);
+}) => {
+  const classes = useStyles();
+  return (
+    <Layout>
+        <div className={classes.root}>
+          <span className={classes.titleText} >{title}</span>
+          { featuredImage && <Img fluid={featuredImage} />}
+          <div className={classes.postContent} dangerouslySetInnerHTML={{__html: html}} />
+          <hr />
+          { prev && (<Fragment><Link to={prev.frontmatter.path}>Previous</Link><br /></Fragment>) }
+          { next && <Link to={next.frontmatter.path}>Next</Link> }
+          <br /><br />
+          <Link to="/">Home</Link>
+        </div>
+    </Layout>
+  );
+};
 
 export const query = graphql`
   query($pathSlug: String!) {

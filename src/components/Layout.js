@@ -12,7 +12,13 @@ const useStyles = makeStyles(() => ({
       display: 'flex',
       flexDirection: 'column',
       minHeight: 'calc(100vh - 54px)',
+      paddingTop: '54px',
+
+      '@media (min-width: 900px)': {
+        paddingTop: 'inherit',
+      },
     },
+
     container: {
       display: 'flex',
       flexWrap: 'wrap',
@@ -20,17 +26,22 @@ const useStyles = makeStyles(() => ({
       flexGrow: 1,
     },
     personalContainer: {
-      minWidth: '300px',
-      maxWidth: '300px',
       justifyContent: 'center',
-      display: 'flex',
       marginTop: '25px',
+      display: 'none',
+
+      '@media (min-width: 900px)': {
+        minWidth: '300px',
+        maxWidth: '300px',
+        display: 'flex',
+      },
     },
     contentContainer: {
-      // backgroundColor: 'yellow',
       padding: '24px 0',
       flexGrow: 1,
-      maxWidth: '600px',
+      '@media (min-width: 900px)': {
+        maxWidth: '600px',
+      },
     }
   }));
 
@@ -40,15 +51,15 @@ export default function Layout(props) {
     <Fragment>
       <NavBar />
       <div className={classes.vertical}>
-      <div className={classes.container}>
-        <div className={classes.personalContainer}>
-          <PersonalInfo />
+        <div className={classes.container}>
+          <div className={classes.personalContainer}>
+            <PersonalInfo />
+          </div>
+          <div className={classes.contentContainer}>
+            {props.children}
+          </div>
         </div>
-        <div className={classes.contentContainer}>
-          {props.children}
-        </div>
-      </div>
-      <Footer />
+        <Footer />
       </div>
     </Fragment>
   );
