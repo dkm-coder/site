@@ -37,9 +37,10 @@ const useStyles = makeStyles(() => ({
       },
     },
     contentContainer: {
-      padding: '24px 0',
+      padding: '24px 16px',
       flexGrow: 1,
       '@media (min-width: 900px)': {
+        padding: '24px 0',
         maxWidth: '600px',
       },
     }
@@ -47,6 +48,8 @@ const useStyles = makeStyles(() => ({
 
 export default function Layout(props) {
   const classes = useStyles();
+  const isHome = window.location.pathname === '/';
+
   return (
     <Fragment>
       <NavBar />
@@ -58,6 +61,7 @@ export default function Layout(props) {
           <div className={classes.contentContainer}>
             {props.children}
           </div>
+          {isHome && <p>This is the home page</p>}
         </div>
         <Footer />
       </div>

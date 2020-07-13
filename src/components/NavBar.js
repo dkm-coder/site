@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import HomeIcon from '@material-ui/icons/Home';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
@@ -23,6 +25,8 @@ const useStyles = makeStyles({
     },
   },
   content: {
+    display: 'flex',
+    justifyContent: 'space-between',
     width: '900px',
     margin: '0 auto',
     textAlign: 'end',
@@ -49,6 +53,35 @@ const useStyles = makeStyles({
     '& span': {
       padding: '0 6px',
       // color: 'yellow',
+    },
+
+    '& a:focus': {
+      color: 'white',
+    },
+
+    '& a:active': {
+      color: 'white',
+    },
+    '& a:visited': {
+      color: 'white',
+    },
+  },
+
+  homeButton: {
+    display: 'inline-flex',
+    paddingTop: '6px',
+    paddingLeft: '16px',
+
+    '@media (min-width: 900px)': {
+      display: 'none',
+    },
+  },
+
+  homeText: {
+    display: 'none',
+
+    '@media (min-width: 900px)': {
+      display: 'block',
     },
   },
 
@@ -85,9 +118,11 @@ export default function NavigationDrawer() {
     >
       <List>
         {['Blog', 'Portfolio', 'About'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
+          <Link to={`/${text.toLowerCase()}`} key={text}>
+            <ListItem button>
+              <ListItemText primary={text} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
@@ -97,15 +132,23 @@ export default function NavigationDrawer() {
     <div>
       <div className={classes.container}>
         <div className={classes.content}>
-          <Button className={classes.menuBtn} onClick={toggleDrawer('right', true)}><MenuIcon color="secondary" /></Button>
-          <div className={classes.menuOptions}>
-            <span>Blog</span>
-            <span>Portfolio</span>
-            <span>About</span>
+          <div>
+            <Link to="/"><Button className={classes.menuBtn}><HomeIcon color="secondary" /></Button></Link>
+            <div className={classes.homeText}>
+              Dave Martinez
+            </div>
           </div>
-          <Drawer anchor="right" open={state['right']} onClose={toggleDrawer('right', false)}>
-            {list('right')}
-          </Drawer>
+          <div>
+            <Button className={classes.menuBtn} onClick={toggleDrawer('right', true)}><MenuIcon color="secondary" /></Button>
+            <div className={classes.menuOptions}>
+              <Link to="/blog"><span>Blog</span></Link>
+              <Link to="/portfolio"><span>Portfolio</span></Link>
+              <Link to="/about"><span>About</span></Link>
+            </div>
+            <Drawer anchor="right" open={state['right']} onClose={toggleDrawer('right', false)}>
+              {list('right')}
+            </Drawer>
+          </div>
         </div>
       </div>
     </div>

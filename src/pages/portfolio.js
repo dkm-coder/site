@@ -1,10 +1,10 @@
 import React from 'react';
 import Layout from '../components/Layout'
 
-const About = () => (
+const Portfolio = () => (
   <Layout>
-    <span>About page</span>
+    <span>Portfolio</span>
   </Layout>
 );
 
-export default About;
+export default Portfolio;
