@@ -46,9 +46,8 @@ const useStyles = makeStyles(() => ({
     }
   }));
 
-export default function Layout(props) {
+export default function Layout({children, isHome}) {
   const classes = useStyles();
-  const isHome = window.location.pathname === '/';
 
   return (
     <Fragment>
@@ -59,7 +58,7 @@ export default function Layout(props) {
             <PersonalInfo />
           </div>
           <div className={classes.contentContainer}>
-            {props.children}
+            {children}
           </div>
           {isHome && <p>This is the home page</p>}
         </div>

@@ -12,14 +12,15 @@ const useStyles = makeStyles({
   }
 });
 
-const Main = () => {
+const Main = ({location}) => {
   const classes = useStyles();
+  const isHome = location.href === '/';
 
   return (
     <div>
       <Layout>
         <div className={classes.root} >
-          <PersonalInfo/>
+          <PersonalInfo isHome={isHome} />
         </div>
       </Layout>
     </div>
