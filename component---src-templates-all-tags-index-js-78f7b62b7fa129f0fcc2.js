@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{YSlf:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),l=a.n(n),r=a("Wbzz"),c=a("7oih");t.default=function(e){var t=e.pageContext.tags;return l.a.createElement(c.a,null,l.a.createElement("div",null,"List of available tags:",l.a.createElement("ul",null,t.map((function(e,t){return l.a.createElement("li",{key:t},l.a.createElement(r.a,{to:""+e},e))})))),l.a.createElement("br",null),l.a.createElement(r.a,{to:"/"},"Home"))}}}]);
-//# sourceMappingURL=component---src-templates-all-tags-index-js-78f7b62b7fa129f0fcc2.js.map
